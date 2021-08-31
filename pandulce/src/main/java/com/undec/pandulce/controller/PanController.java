@@ -1,6 +1,8 @@
 package com.undec.pandulce.controller;
 
 import com.undec.pandulce.dto.Response;
+import com.undec.pandulce.service.PanService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,9 +11,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/panes")
 public class PanController {
 
+   @Autowired
+   private PanService panService;
+
     @GetMapping()
     public ResponseEntity<Response> list(){
-        Response response = new Response();
+        Response response = panService.findAll();
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
