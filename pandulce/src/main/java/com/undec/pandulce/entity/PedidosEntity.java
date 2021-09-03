@@ -17,6 +17,7 @@ public class PedidosEntity {
     private Collection<ListaDePanesEntity> listaDePanes;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idPedido_pk")
     public Integer getIdPedido() {
         return idPedido;

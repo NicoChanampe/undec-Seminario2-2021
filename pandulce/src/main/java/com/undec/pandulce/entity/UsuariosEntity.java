@@ -18,6 +18,7 @@ public class UsuariosEntity {
     private Collection<PedidosEntity> listadoPedidos;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idUsuario_pk")
     public Integer getIdUsuario() {
         return idUsuario;

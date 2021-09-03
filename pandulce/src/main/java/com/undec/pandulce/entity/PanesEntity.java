@@ -15,6 +15,7 @@ public class PanesEntity {
     private Collection<ListaDePanesEntity> listaDePanes;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idPan_pk")
     public Integer getIdPan() {
         return idPan;
