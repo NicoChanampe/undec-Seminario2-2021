@@ -1,5 +1,9 @@
 package ar.edu.undec.tpseminario2.entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -13,6 +17,7 @@ public class ListaDePanes {
 
     @Id
     @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
         return id;
     }
@@ -44,6 +49,8 @@ public class ListaDePanes {
         return Objects.hash(id, cantidad);
     }
 
+ //   @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+ //   @JsonIdentityReference(alwaysAsId = true)
     @ManyToOne
     @JoinColumn(name = "panesid", referencedColumnName = "id", nullable = false)
     public Panes getPanesByPanesid() {
