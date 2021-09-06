@@ -27,4 +27,15 @@ public class PanesService {
         }
         return thisResponse;
     }
+
+    public Response findOneById(String id){
+        Response response = new Response();
+        try {
+            Panes panesList = panesRepository.findById(Integer.parseInt(id)).get();
+            response.setData(panesList);
+        }catch (Exception e){
+
+        }
+        return response;
+    }
 }
