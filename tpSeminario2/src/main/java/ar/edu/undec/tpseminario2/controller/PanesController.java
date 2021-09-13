@@ -27,7 +27,7 @@ public class PanesController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @GetMapping("/panesenstock")
+    @GetMapping("/enstock")
     public ResponseEntity<Response> getPanesActives(){
         Response response = panesService.findAllActive();
         return new ResponseEntity<>(response,HttpStatus.OK);
