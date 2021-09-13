@@ -27,6 +27,12 @@ public class PanesController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    @GetMapping("/panesenstock")
+    public ResponseEntity<Response> getPanesActives(){
+        Response response = panesService.findAllActive();
+        return new ResponseEntity<>(response,HttpStatus.OK);
+    }
+
     @PutMapping
     public ResponseEntity<Response> put(@RequestBody Object input){
         Response response = new Response();
