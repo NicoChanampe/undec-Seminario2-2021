@@ -19,12 +19,8 @@ public class PanesService {
 
     public Response findAll(){
         Response thisResponse = new Response();
-        try {
-            List<Panes> panesList = panesRepository.findAll();
-            thisResponse.setData(panesList);
-        }catch (Exception e){
-
-        }
+        List<Panes> panesList = panesRepository.findAll();
+        thisResponse.setData(panesList);
         return thisResponse;
     }
 
@@ -34,7 +30,8 @@ public class PanesService {
             Panes panesList = panesRepository.findById(Integer.parseInt(id)).get();
             response.setData(panesList);
         }catch (Exception e){
-
+            e.printStackTrace();
+            throw e;
         }
         return response;
     }

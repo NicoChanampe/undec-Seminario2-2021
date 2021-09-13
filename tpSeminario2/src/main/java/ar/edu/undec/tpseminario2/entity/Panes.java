@@ -1,6 +1,10 @@
 package ar.edu.undec.tpseminario2.entity;
 
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.sql.Date;
 import java.util.Objects;
 
 @Entity
@@ -10,10 +14,13 @@ public class Panes {
     private String contenido;
     private Integer pesoengramos;
     private Double precio;
+    private Date fechadebaja;
+    private Date fechadealta;
+    private Byte estado;
+    private Date fechamodificacion;
 
     @Id
     @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
         return id;
     }
@@ -62,16 +69,56 @@ public class Panes {
         this.precio = precio;
     }
 
+    @Basic
+    @Column(name = "fechadebaja", nullable = true)
+    public Date getFechadebaja() {
+        return fechadebaja;
+    }
+
+    public void setFechadebaja(Date fechadebaja) {
+        this.fechadebaja = fechadebaja;
+    }
+
+    @Basic
+    @Column(name = "fechadealta", nullable = true)
+    public Date getFechadealta() {
+        return fechadealta;
+    }
+
+    public void setFechadealta(Date fechadealta) {
+        this.fechadealta = fechadealta;
+    }
+
+    @Basic
+    @Column(name = "estado", nullable = false)
+    public Byte getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Byte estado) {
+        this.estado = estado;
+    }
+
+    @Basic
+    @Column(name = "fechamodificacion", nullable = true)
+    public Date getFechamodificacion() {
+        return fechamodificacion;
+    }
+
+    public void setFechamodificacion(Date fechamodificacion) {
+        this.fechamodificacion = fechamodificacion;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Panes panes = (Panes) o;
-        return Objects.equals(id, panes.id) && Objects.equals(nombre, panes.nombre) && Objects.equals(contenido, panes.contenido) && Objects.equals(pesoengramos, panes.pesoengramos) && Objects.equals(precio, panes.precio);
+        return Objects.equals(id, panes.id) && Objects.equals(nombre, panes.nombre) && Objects.equals(contenido, panes.contenido) && Objects.equals(pesoengramos, panes.pesoengramos) && Objects.equals(precio, panes.precio) && Objects.equals(fechadebaja, panes.fechadebaja) && Objects.equals(fechadealta, panes.fechadealta) && Objects.equals(estado, panes.estado) && Objects.equals(fechamodificacion, panes.fechamodificacion);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nombre, contenido, pesoengramos, precio);
+        return Objects.hash(id, nombre, contenido, pesoengramos, precio, fechadebaja, fechadealta, estado, fechamodificacion);
     }
 }
