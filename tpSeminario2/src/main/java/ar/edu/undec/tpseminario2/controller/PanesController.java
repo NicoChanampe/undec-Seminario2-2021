@@ -43,7 +43,7 @@ public class PanesController {
     }
 
     @PostMapping
-    public ResponseEntity<Response> post(@RequestBody PanesDto input) throws ParseException {
+    public ResponseEntity<Response> post(@RequestBody PanesDto input) {
         Response response = panesService.save(input);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

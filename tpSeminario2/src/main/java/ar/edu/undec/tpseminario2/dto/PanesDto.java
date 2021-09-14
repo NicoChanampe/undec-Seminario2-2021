@@ -3,9 +3,9 @@ package ar.edu.undec.tpseminario2.dto;
 import ar.edu.undec.tpseminario2.entity.Panes;
 
 import java.sql.Date;
-import java.text.DateFormat;
+//import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
+//import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -84,13 +84,13 @@ public class PanesDto {
         return panDto;
     }
 
-    public Panes getPan(PanesDto panDto) throws ParseException {
+    public Panes getPan(PanesDto panDto){
         LocalDate miFecha = LocalDate.now();
         Date fechaCreacion = Date.valueOf(miFecha);
 
         Panes miPan = new Panes();
 
-        //miPan.setId(panDto.getId());
+        miPan.setId(panDto.getId());
         miPan.setContenido(panDto.getContenido());
         miPan.setNombre(panDto.getNombre());
         miPan.setPesoengramos(panDto.getPesoengramos());

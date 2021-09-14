@@ -44,7 +44,7 @@ public class PanesService {
         return response;
     }
 
-    public Response save(PanesDto input) throws ParseException {
+    public Response save(PanesDto input) {
         Response response = new Response();
        // try {
             Panes panes = new PanesDto().getPan(input);
