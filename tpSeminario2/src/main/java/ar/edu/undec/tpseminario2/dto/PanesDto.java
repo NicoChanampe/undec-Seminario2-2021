@@ -66,4 +66,16 @@ public class PanesDto {
         }
         return miLista;
     }
+
+    public PanesDto getPanDto(Panes pan){
+        PanesDto panDto = new PanesDto();
+
+        panDto.setId(pan.getId());
+        panDto.setContenido(pan.getContenido());
+        panDto.setNombre(pan.getNombre());
+        panDto.setPesoengramos(pan.getPesoengramos());
+        panDto.setPrecio(pan.getPrecio());
+
+        return panDto;
+    }
 }

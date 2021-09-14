@@ -35,8 +35,7 @@ public class PanesService {
     public Response findOneById(String id){
         Response response = new Response();
         try {
-            Panes panesList = panesRepository.findById(Integer.parseInt(id)).get();
-            response.setData(panesList);
+            response.setData(new PanesDto().getPanDto(panesRepository.findById(Integer.parseInt(id)).get()));
         }catch (Exception e){
             e.printStackTrace();
             throw e;

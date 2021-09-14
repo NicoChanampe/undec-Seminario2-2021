@@ -22,7 +22,7 @@ public class PanesController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Response> get(@PathVariable String id){
+    public ResponseEntity<Response> getPan(@PathVariable String id){
         Response response = panesService.findOneById(id);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
