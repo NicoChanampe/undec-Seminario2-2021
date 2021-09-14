@@ -7,6 +7,7 @@ import ar.edu.undec.tpseminario2.repository.PanesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
 import java.util.List;
 
 @Service
@@ -40,6 +41,19 @@ public class PanesService {
             e.printStackTrace();
             throw e;
         }
+        return response;
+    }
+
+    public Response save(PanesDto input) throws ParseException {
+        Response response = new Response();
+       // try {
+            Panes panes = new PanesDto().getPan(input);
+            panesRepository.save(panes);
+            response.setData(panes);
+       // }catch (Exception e){
+       //     e.printStackTrace();
+       //     throw e;
+       // }
         return response;
     }
 }

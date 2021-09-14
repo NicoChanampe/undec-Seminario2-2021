@@ -2,6 +2,11 @@ package ar.edu.undec.tpseminario2.dto;
 
 import ar.edu.undec.tpseminario2.entity.Panes;
 
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,5 +82,22 @@ public class PanesDto {
         panDto.setPrecio(pan.getPrecio());
 
         return panDto;
+    }
+
+    public Panes getPan(PanesDto panDto) throws ParseException {
+        LocalDate miFecha = LocalDate.now();
+        Date fechaCreacion = Date.valueOf(miFecha);
+
+        Panes miPan = new Panes();
+
+        //miPan.setId(panDto.getId());
+        miPan.setContenido(panDto.getContenido());
+        miPan.setNombre(panDto.getNombre());
+        miPan.setPesoengramos(panDto.getPesoengramos());
+        miPan.setPrecio(panDto.getPrecio());
+        miPan.setEstado((byte)1);
+        miPan.setFechadealta(fechaCreacion);
+
+        return miPan;
     }
 }
