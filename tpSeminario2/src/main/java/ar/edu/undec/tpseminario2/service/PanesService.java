@@ -7,7 +7,6 @@ import ar.edu.undec.tpseminario2.repository.PanesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-//import java.text.ParseException;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
@@ -74,6 +73,20 @@ public class PanesService {
         if(panDto.getPrecio() != null)
             pan.setPrecio(panDto.getPrecio());
         pan.setFechamodificacion(fechaModificacion);
+        panesRepository.save(pan);
+        response.setData(pan);
+
+        return response;
+    }
+
+    public Response delete(String id) {
+        Response response = new Response();
+        LocalDate miFecha = LocalDate.now();
+        Date fechaDeBaja = Date.valueOf(miFecha);
+
+        Panes pan = panesRepository.findById(Integer.parseInt(id)).get();
+        pan.setFechadebaja(fechaDeBaja);
+        pan.setEstado((byte)0);
         panesRepository.save(pan);
         response.setData(pan);
 

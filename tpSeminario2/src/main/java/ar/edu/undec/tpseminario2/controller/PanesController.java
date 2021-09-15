@@ -50,7 +50,7 @@ public class PanesController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Response> delete(@PathVariable String id){
-        Response response = new Response();
+        Response response = panesService.delete(id);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }
