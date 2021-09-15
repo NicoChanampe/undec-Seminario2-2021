@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.ParseException;
+//import java.text.ParseException;
 
 @RestController
 @RequestMapping("/panes")
@@ -37,8 +37,8 @@ public class PanesController {
     }
 
     @PutMapping
-    public ResponseEntity<Response> put(@RequestBody Object input){
-        Response response = new Response();
+    public ResponseEntity<Response> put(@RequestBody PanesDto input){
+        Response response = panesService.update(input);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
