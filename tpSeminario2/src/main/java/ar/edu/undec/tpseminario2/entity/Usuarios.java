@@ -15,7 +15,7 @@ public class Usuarios {
     private String dni;
     private String direccion;
     private String telefono;
-    private String mailDeCuenta;
+    private String maildecuenta;
     private String contraseña;
     private Byte estado;
     private Date fechacreacion;
@@ -83,13 +83,13 @@ public class Usuarios {
     }
 
     @Basic
-    @Column(name = "mailDeCuenta", nullable = false, length = 40)
+    @Column(name = "maildecuenta", nullable = false, length = 40)
     public String getMailDeCuenta() {
-        return mailDeCuenta;
+        return maildecuenta;
     }
 
-    public void setMailDeCuenta(String mailDeCuenta) {
-        this.mailDeCuenta = mailDeCuenta;
+    public void setMailDeCuenta(String maildecuenta) {
+        this.maildecuenta = maildecuenta;
     }
 
     @Basic
@@ -147,11 +147,11 @@ public class Usuarios {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Usuarios usuarios = (Usuarios) o;
-        return Objects.equals(id, usuarios.id) && Objects.equals(nombre, usuarios.nombre) && Objects.equals(apellido, usuarios.apellido) && Objects.equals(dni, usuarios.dni) && Objects.equals(direccion, usuarios.direccion) && Objects.equals(telefono, usuarios.telefono) && Objects.equals(mailDeCuenta, usuarios.mailDeCuenta) && Objects.equals(contraseña, usuarios.contraseña) && Objects.equals(estado, usuarios.estado) && Objects.equals(fechacreacion, usuarios.fechacreacion) && Objects.equals(fechamodificacion, usuarios.fechamodificacion) && Objects.equals(fechadebaja, usuarios.fechadebaja);
+        return Objects.equals(id, usuarios.id) && Objects.equals(nombre, usuarios.nombre) && Objects.equals(apellido, usuarios.apellido) && Objects.equals(dni, usuarios.dni) && Objects.equals(direccion, usuarios.direccion) && Objects.equals(telefono, usuarios.telefono) && Objects.equals(maildecuenta, usuarios.maildecuenta) && Objects.equals(contraseña, usuarios.contraseña) && Objects.equals(estado, usuarios.estado) && Objects.equals(fechacreacion, usuarios.fechacreacion) && Objects.equals(fechamodificacion, usuarios.fechamodificacion) && Objects.equals(fechadebaja, usuarios.fechadebaja);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nombre, apellido, dni, direccion, telefono, mailDeCuenta, contraseña, estado, fechacreacion, fechamodificacion, fechadebaja);
+        return Objects.hash(id, nombre, apellido, dni, direccion, telefono, maildecuenta, contraseña, estado, fechacreacion, fechamodificacion, fechadebaja);
     }
 }
